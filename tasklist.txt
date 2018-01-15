@@ -1,0 +1,4 @@
+Create Initial Routing Structure
+Dashboard Page Should Show All of the posts
+Add Link To add Posts
+Implement Vuex
