@@ -1,3 +1,3 @@
-export const posts = (state) => {
-    return state.posts
+export const categories = (state) => {
+    return state.categories
 }

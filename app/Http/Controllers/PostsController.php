@@ -10,12 +10,10 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Posts::select('id','title','body')->get();
-        //$category = Category::select('id','title')->with('posts')->get();
-        //dd($posts);
+        //$posts = Posts::select('id','title','body')->get();
+        $category = Category::select('id','name')->with('posts')->get();
         return response()->json([
-            'posts'=> $posts,
-            'success'=>true
+            'category'=> $category,
         ]);
     }
 

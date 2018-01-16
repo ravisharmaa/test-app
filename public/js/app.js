@@ -46590,6 +46590,19 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46613,7 +46626,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         sendDeleteRequest: 'sendDeleteRequest'
     })),
     computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])({
-        posts: 'posts'
+        categories: 'categories'
     })
 
 });
@@ -46627,94 +46640,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "container" },
-      [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
         _c(
-          "router-link",
-          {
-            staticClass: "btn btn-primary pull-right",
-            attrs: { to: "create/posts" }
-          },
-          [_vm._v("Add Post")]
-        ),
-        _vm._v(" "),
-        _c("h2", [_vm._v("Posts Data")]),
-        _vm._v(" "),
-        _vm.posts.length
-          ? _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table" }, [
-                _vm._m(0),
+          "div",
+          { staticClass: "col-md-8 col-md-offset-2" },
+          _vm._l(_vm.categories, function(category) {
+            return _c(
+              "div",
+              { staticClass: "panel panel-default" },
+              [
+                _c("div", { staticClass: "panel-heading" }, [
+                  _vm._v(_vm._s(category.name))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.posts, function(post) {
-                    return _c("tr", { key: post.id }, [
-                      _c("td", [_vm._v(_vm._s(post.title))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(post.body))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("category")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger btn-sm",
-                            on: {
-                              click: function($event) {
-                                _vm.deletePost(post.id)
-                              }
-                            }
-                          },
-                          [_vm._v(" Delete ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary btn-sm",
-                            on: {
-                              click: function($event) {
-                                _vm.editPost(post.id)
-                              }
-                            }
-                          },
-                          [_vm._v("Edit Post")]
-                        )
-                      ])
-                    ])
-                  })
-                )
-              ])
-            ])
-          : _c("div", { staticClass: "alert alert-success" }, [
-              _vm._v("\n            No Posts Added\n        ")
-            ])
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Title")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Body")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Category")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Actions")])
+                _vm._l(category.posts, function(post) {
+                  return _c("div", { staticClass: "panel-body" }, [
+                    _vm._v(
+                      "\n                         " +
+                        _vm._s(post.title) +
+                        "\n                    "
+                    )
+                  ])
+                })
+              ],
+              2
+            )
+          })
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47193,9 +47151,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "posts", function() { return posts; });
-var posts = function posts(state) {
-    return state.posts;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "categories", function() { return categories; });
+var categories = function categories(state) {
+    return state.categories;
 };
 
 /***/ }),
@@ -47273,7 +47231,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePostsInState", function() { return updatePostsInState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showSinglePost", function() { return showSinglePost; });
 var updatePostsInState = function updatePostsInState(state, response) {
-  return state.posts = response.data.posts;
+  return state.categories = response.data.category;
 };
 
 var showSinglePost = function showSinglePost(state, response) {
@@ -47286,7 +47244,7 @@ var showSinglePost = function showSinglePost(state, response) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-    posts: {},
+    categories: {},
     errors: {}
 });
 

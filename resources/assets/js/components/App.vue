@@ -1,27 +1,26 @@
 <template>
    <div>
-
-       <div class="container">
+     <!--  <div class="container">
            <router-link to="create/posts" class="btn btn-primary pull-right">Add Post</router-link>
            <h2>Posts Data</h2>
-           <div class="table-responsive" v-if="posts.length">
+           <div class="table-responsive" v-if="categories.length">
                <table class="table">
                    <thead>
                    <tr>
-                       <th>Title</th>
-                       <th>Body</th>
-                       <th>Category</th>
+                       <th>Category Name</th>
+                       <th>Post</th>
                        <th>Actions</th>
                    </tr>
                    </thead>
                    <tbody>
-                   <tr v-for="post in posts" :key="post.id">
-                       <td>{{post.title}}</td>
-                       <td>{{post.body}}</td>
-                       <td>category</td>
+                   <tr v-for="category in categories" :key="category.id">
+                       <td>{{category.name}}</td>
+                       <td v-for="post in category.posts" >
+                           {{post.body}}
+                       </td>
                        <td>
-                            <button @click="deletePost(post.id)" class="btn btn-danger btn-sm"> Delete </button>
-                            <button @click="editPost(post.id)" class="btn btn-primary btn-sm">Edit Post</button>
+                            <button @click="deletePost(category.id)" class="btn btn-danger btn-sm"> Delete </button>
+                            <button @click="editPost(category.id)" class="btn btn-primary btn-sm">Edit Post</button>
                        </td>
                    </tr>
                    </tbody>
@@ -30,7 +29,21 @@
            <div v-else class="alert alert-success">
                No Posts Added
            </div>
+       </div>-->
+       <div class="container">
+           <div class="row">
+               <div class="col-md-8 col-md-offset-2">
+                   <div class="panel panel-default" v-for="category in categories" >
+                       <div class="panel-heading">{{category.name}}</div>
+                       <div class="panel-body" v-for="post in category.posts">
+                            {{post.title}}
+                       </div>
+                   </div>
+               </div>
+           </div>
        </div>
+
+
    </div>
 </template>
 
@@ -59,7 +72,7 @@
             })
         },
         computed: mapGetters({
-            posts:'posts'
+            categories:'categories'
         }),
 
 
