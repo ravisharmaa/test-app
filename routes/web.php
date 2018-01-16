@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::get('/posts', 'PostsController@index');
 Route::post('/create/posts', 'PostsController@store');
+Route::delete('/posts/delete/{id}', 'PostsController@delete');
+Route::get('/posts/edit/{id}', 'PostsController@edit');
+Route::post('/posts/update', 'PostsController@update');

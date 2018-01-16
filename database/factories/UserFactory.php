@@ -22,8 +22,18 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\Category::class, function (Faker $faker) {
+   return [
+        'name'=>$faker->text
+   ];
+});
+
+
 $factory->define(App\Posts::class, function (Faker $faker) {
     return [
+        'category_id'=> function() {
+            return factory('App\Category')->create()->id;
+            },
         'title'=>$faker->realText($maxNbChars = 20, $indexSize = 2),
         'body'=>$faker->text
     ];

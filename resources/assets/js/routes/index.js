@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import App from '../components/App'
 import Post from '../components/Post'
-Vue.use(Router)
+import EditForm from '../components/EditPost'
+Vue.use(Router);
 
 export default new Router({
     routes:[
@@ -13,6 +14,10 @@ export default new Router({
         {
             path:'/create/posts',
             component:Post
+        },
+        {
+            path:'/edit/posts/:postId',
+            component:EditForm
         }
 
     ]
