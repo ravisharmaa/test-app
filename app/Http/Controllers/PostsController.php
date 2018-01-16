@@ -11,6 +11,19 @@ class PostsController extends Controller
     {
         $posts = Posts::select('id','title','body')->get();
         return response()->json([
-            'posts'=> $posts]);
+            'posts'=> $posts,
+            'success'=>true
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+       Posts::create([
+          'title'=> $request->get('title'),
+          'body'=>$request->get('body')
+       ]);
+       return response()->json([
+          'success'=>true
+       ]);
     }
 }

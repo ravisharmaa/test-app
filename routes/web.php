@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', 'PostsController@index');
+Route::post('/create/posts', 'PostsController@store');

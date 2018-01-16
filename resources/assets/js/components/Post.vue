@@ -6,15 +6,16 @@
                     <div class="panel-heading">Add a Category</div>
 
                     <div class="panel-body">
-                        <form action="" @submi.prevent="submitForm">
+                        <form action="#" @submit.prevent="postForm">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" id="title" class="form-control">
+                            <input type="text" v-model="formData.title" id="title" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="body">Body</label>
-                            <input type="text" id="body" class="form-control">
+                            <input type="text" v-model="formData.body" id="body" class="form-control">
                         </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </form>
                     </div>
                 </div>
@@ -24,12 +25,27 @@
 </template>
 
 <script>
-
+    import {mapActions} from 'vuex'
     export default {
         name:'Post',
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                formData:{
+                    title:'',
+                    body:''
+                }
+            }
         },
+        methods:{
+            postForm(){
+                this.submitPostForm(this.formData).then((response) => {
+                  this.$router.replace('/');
+                })
+            },
+            ...mapActions({
+                submitPostForm:'submitPostForm'
+            })
+        }
 
 
 
