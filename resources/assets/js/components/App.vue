@@ -37,6 +37,7 @@
                        <div class="panel-heading">{{category.name}}</div>
                        <div class="panel-body" v-for="post in category.posts">
                             {{post.title}}
+                           <button @click="deletePost(post.id)" class="btn btn-danger btn-sm pull-right"> Delete </button>
                        </div>
                    </div>
                </div>
@@ -56,9 +57,9 @@
 
         methods:{
             deletePost(postId){
-                this.posts.filter((post) => {
+                /*this.categories.filter((post) => {
                     return post.id !== postId
-                });
+                });*/
                 this.sendDeleteRequest(postId)
             },
 
@@ -72,7 +73,7 @@
             })
         },
         computed: mapGetters({
-            categories:'categories'
+            categories:'categories',
         }),
 
 
