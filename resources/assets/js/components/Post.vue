@@ -4,7 +4,6 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Add a Category</div>
-
                     <div class="panel-body">
                         <form action="#" @submit.prevent="postForm">
                         <div class="form-group">
@@ -25,7 +24,7 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex'
     export default {
         name:'Post',
         data() {
@@ -42,10 +41,23 @@
                   this.$router.replace('/');
                 })
             },
+
+            getCategoriesOnly(){
+                this.getCategories()
+            },
             ...mapActions({
-                submitPostForm:'submitPostForm'
+                submitPostForm:'submitPostForm',
+                getCategories:'getCategories'
             })
-        }
+        },
+
+        mounted(){
+            this.getCategoriesOnly();
+        },
+
+        computed:mapGetters({
+            categories:'categories'
+        })
 
 
 

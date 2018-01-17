@@ -42,3 +42,11 @@ export const updatePostById = ({dispatch}, payload) => {
     })
 };
 
+export const getCategories = ({commit}) => {
+  return axios.get('/categories').then((response) => {
+      commit('updateCategoryOnly', response)
+  }).catch((error) => {
+      console.log(error)
+  })
+};
+

@@ -34,6 +34,7 @@
            <div class="row">
                <div class="col-md-8 col-md-offset-2">
                    <div class="panel panel-default" v-for="category in categories" >
+                       <router-link to="create/posts" class="btn btn-primary btn-sm pull-right">Add Post</router-link>
                        <div class="panel-heading">{{category.name}}</div>
                        <div class="panel-body" v-for="post in category.posts">
                             {{post.title}}

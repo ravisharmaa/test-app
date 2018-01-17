@@ -46524,7 +46524,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/App.vue"
+Component.options.__file = "resources\\assets\\js\\components\\App.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -46533,9 +46533,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8142f38c", Component.options)
+    hotAPI.createRecord("data-v-117390fa", Component.options)
   } else {
-    hotAPI.reload("data-v-8142f38c", Component.options)
+    hotAPI.reload("data-v-117390fa", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -46554,6 +46554,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(1);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
 //
 //
 //
@@ -46651,6 +46652,15 @@ var render = function() {
               "div",
               { staticClass: "panel panel-default" },
               [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary btn-sm pull-right",
+                    attrs: { to: "create/posts" }
+                  },
+                  [_vm._v("Add Post")]
+                ),
+                _vm._v(" "),
                 _c("div", { staticClass: "panel-heading" }, [
                   _vm._v(_vm._s(category.name))
                 ]),
@@ -46691,7 +46701,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8142f38c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-117390fa", module.exports)
   }
 }
 
@@ -46721,7 +46731,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Post.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Post.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -46730,9 +46740,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1695e957", Component.options)
+    hotAPI.createRecord("data-v-07223697", Component.options)
   } else {
-    hotAPI.reload("data-v-1695e957", Component.options)
+    hotAPI.reload("data-v-07223697", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -46751,7 +46761,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(1);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-//
 //
 //
 //
@@ -46797,10 +46806,23 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.submitPostForm(this.formData).then(function (response) {
                 _this.$router.replace('/');
             });
+        },
+        getCategoriesOnly: function getCategoriesOnly() {
+            this.getCategories();
         }
     }, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])({
-        submitPostForm: 'submitPostForm'
-    }))
+        submitPostForm: 'submitPostForm',
+        getCategories: 'getCategories'
+    })),
+
+    mounted: function mounted() {
+        this.getCategoriesOnly();
+    },
+
+
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])({
+        categories: 'categories'
+    })
 
 });
 
@@ -46904,7 +46926,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1695e957", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-07223697", module.exports)
   }
 }
 
@@ -46934,7 +46956,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/EditPost.vue"
+Component.options.__file = "resources\\assets\\js\\components\\EditPost.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -46943,9 +46965,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a3e82bfe", Component.options)
+    hotAPI.createRecord("data-v-8da0d17e", Component.options)
   } else {
-    hotAPI.reload("data-v-a3e82bfe", Component.options)
+    hotAPI.reload("data-v-8da0d17e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47125,7 +47147,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a3e82bfe", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-8da0d17e", module.exports)
   }
 }
 
@@ -47180,6 +47202,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendDeleteRequest", function() { return sendDeleteRequest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSinglePost", function() { return getSinglePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePostById", function() { return updatePostById; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCategories", function() { return getCategories; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
@@ -47235,6 +47258,16 @@ var updatePostById = function updatePostById(_ref5, payload) {
     });
 };
 
+var getCategories = function getCategories(_ref6) {
+    var commit = _ref6.commit;
+
+    return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/categories').then(function (response) {
+        commit('updateCategoryOnly', response);
+    }).catch(function (error) {
+        console.log(error);
+    });
+};
+
 /***/ }),
 /* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -47243,12 +47276,17 @@ var updatePostById = function updatePostById(_ref5, payload) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePostsInState", function() { return updatePostsInState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showSinglePost", function() { return showSinglePost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCategoryOnly", function() { return updateCategoryOnly; });
 var updatePostsInState = function updatePostsInState(state, response) {
   return state.categories = response.data.category;
 };
 
 var showSinglePost = function showSinglePost(state, response) {
   return state.posts = response.data.post;
+};
+
+var updateCategoryOnly = function updateCategoryOnly(state, response) {
+  return state.categories = response.data.category;
 };
 
 /***/ }),

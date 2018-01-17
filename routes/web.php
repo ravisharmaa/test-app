@@ -20,3 +20,4 @@ Route::post('/create/posts', 'PostsController@store');
 Route::delete('/posts/delete/{id}', 'PostsController@delete');
 Route::get('/posts/edit/{id}', 'PostsController@edit');
 Route::post('/posts/update', 'PostsController@update');
+Route::get('/categories', 'CategoriesController@index');

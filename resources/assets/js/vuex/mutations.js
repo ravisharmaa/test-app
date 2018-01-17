@@ -5,3 +5,7 @@ export const updatePostsInState = (state, response) => {
 export const showSinglePost = (state, response) => {
   return state.posts = response.data.post
 };
+
+export const updateCategoryOnly = (state, response) => {
+  return state.categories = response.data.category
+};
