@@ -11,6 +11,13 @@
                             <input type="text" v-model="formData.title" id="title" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="title">Select Category</label>
+                            <select v-model="formData.selectCategories" class="form-control">
+                                <option value="">Please Select</option>
+                                <option :value="category.id" v-for="category in categories">{{category.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="body">Body</label>
                             <input type="text" v-model="formData.body" id="body" class="form-control">
                         </div>
@@ -31,14 +38,16 @@
             return {
                 formData:{
                     title:'',
-                    body:''
+                    body:'',
+                    selectCategories:'1'
                 }
             }
         },
         methods:{
             postForm(){
+
                 this.submitPostForm(this.formData).then((response) => {
-                  this.$router.replace('/');
+                    this.$router.replace('/');
                 })
             },
 

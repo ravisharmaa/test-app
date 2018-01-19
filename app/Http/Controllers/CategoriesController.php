@@ -23,6 +23,7 @@ class CategoriesController extends Controller
           'title'=> $request->get('title'),
           'body'=>$request->get('body')
        ]);
+
        return response()->json([
           'success'=>true
        ]);

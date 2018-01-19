@@ -19,11 +19,17 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-       Posts::create([
+        $post = Posts::create([
           'title'=> $request->get('title'),
-          'body'=>$request->get('body')
+          'body'=>$request->get('body'),
+          'category_id'=>$request->get('selectCategories')
        ]);
-       return response()->json([
+
+
+
+
+
+        return response()->json([
           'success'=>true
        ]);
     }
